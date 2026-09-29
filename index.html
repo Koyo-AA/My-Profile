@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自己紹介サイト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="wrapper">
+  <header>
+      <div id="title-block">
+        <h2>プロフィール</h2>
+        <div id="open_nav" class="hamburger">
+          <button class="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>  
+      <ul>
+        <li>名前: Koyo</li>
+        <li>生年月日: 1996/5/22</li>
+        <li>Gmail: manmukoyo0522@gmail.com</li>
+      </ul>
+  </header>
+
+  <main>
+    <section>
+      <h2>簡単な自己紹介</h2>
+      <p id="intro">手に職をつけたいと思い、身近で誰もが一度は見る、Webサイトに関わるため勉強中です。
+        過去にECサイトの商品情報の入力業務の経験からページを構成する内部に関わりたいと思いました。
+        自分にとってやりやすい環境を作れるよう、使用するアプリ、ツールへの理解を深めていきたいです。
+      </p>
+
+      <h2>学歴</h2>
+      <ul class="timeline-left">
+        <li><span>2012 - 2016</span><p>都立一橋高校 卒業</p>
+        </li>
+        <li><span>2016 - 2020</span><p>東洋大学 卒業</p>
+        </li>
+      </ul>
+
+      <h2>職務経歴</h2>
+      <ul class="timeline-left">
+        <li><span>2020 - 2023</span>
+        <p>アマゾンジャパンランスタッドより派遣<br>
+        職務内容： デリバリーステーション内でAssociateとして勤務<br>
+        学んだこと： 仕事仲間との連帯感の大事さ</p></li>
+        
+        <li><span>2024 - 2025</span>
+        <p>さくら情報システムビジネスサポートセンターより派遣<br>
+        職務内容： スキャニング事務<br>
+        学んだこと： チェック業務や正確な業務を意識することの重要性</p></li>
+
+        <li><span>2025 - 2026</span>
+        <p>青山商事 瑞江リテール部<br>
+        職務内容： ECサイトに表示される商品情報の入力・編集<br>
+        学んだこと： 扱う商品への理解度の大事さ、主にHTML部分でのECサイトの編集、使われたツールへの知識（スプレッドシート、販促マネージャー）</p></li>
+        </div>
+      </ul>
+
+      <h2>スキル</h2>
+      <p>資格</p>
+      <ul id="ability" class="skil-list">
+        <li>Webクリエイター認定試験（スタンダード）</li>
+        <li>Excel Associate (Microsoft 365 Apps)</li>
+        <li>普通自動車免許</li>
+      </ul>
+
+      <p>学習中</p>
+      <ul id="skil" class="skil-list">
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>GitHub</li>
+      </ul>
+      </div>
+    </section>
+  </main>
+</div><!-- /.wrapper --> 
+
+<nav id="nav">
+  <ul id="nav-content">
+    <li><button id="light-toggle">☼</button></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="../お問い合わせフォーラム/index.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<footer>
+  <p>&copy; 2026 Koyo</p>
+</footer>
+
+<script>
+  'use strict';
+
+/*ハンバーガーメニュー開閉*/  
+document.addEventListener('DOMContentLoaded' , () => {
+  document.getElementById('open_nav').addEventListener('click' , () => {
+    document.getElementById('wrapper').classList.toggle('show');
+    document.getElementById('nav').classList.toggle('show');
+  });
+});
+
+/*ライトモード切替*/  
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('light-toggle').addEventListener('click', ()=> {
+        document.body.classList.toggle('light-mode');
+        document.getElementById('menu-btn').classList.toggle('light-mode');
+    });
+});
+</script>
+</body>
+</html>
