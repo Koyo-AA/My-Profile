@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ページの説明">
+    <title>架空の車サイトのトップページ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+    <div class="container">    
+    <header>
+        <ul>
+            <li>クルマの種類</li>
+            <li>会社概要</li>
+            <li>サポート</li>
+        </ul>
+    </header>
+    </div><!-- /.container -->
+
+    <main>
+        <section>
+            <div class="center">
+                <div class="first-view">
+                    <img src="./image/main.jpg" id="bigimg">
+                </div>
+
+            <ul class="small-image">
+                <li><img src="./image/thumb-main.jpg" class="thumb" data-image="./image/main.jpg"></li>
+                <li><img src="./image/thumb-car1.jpg" class="thumb" data-image="./image/car1.jpg"></li>
+                <li><img src="./image/thumb-car2.jpg" class="thumb" data-image="./image/car2.jpg"></li>
+                <li><img src="./image/thumb-car3.jpg" class="thumb" data-image="./image/car3.jpg"></li>
+            </ul>
+            </div>
+        </section>
+    </main>
+    </div><!-- /#wrapper -->
+
+    <footer>
+        <p>&copy; 2026 Koyo</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        'use strict';
+
+        /*ページをスクロールしたらscrolledクラスを追加*/
+        window.addEventListener('scroll' , () => {
+            if(window.scrollY > 0) {
+                document.querySelector('header').classList.add('scrolled');
+            } else {
+                document.querySelector('header').classList.remove('scrolled');
+            }
+        });
+
+        /*サムネイルとスライドショーのための定義*/
+        const thumbs = document.querySelectorAll('.thumb');
+        const items = document.querySelectorAll('.small-image li');
+
+        let currentIndex = 0;
+
+        /*クリックしたサムネイルを大きな画像に変更*/
+        thumbs.forEach((item, index) => {
+            item.addEventListener('click' , () => {
+                document.getElementById('bigimg').src = item.dataset.image;
+                
+        /*クリックしたサムネイルだけにactiveクラスを追加*/        
+                items.forEach((item) => {
+                    item.addEventListener('click' , () => {
+                        items.forEach((item) => {
+                            item.classList.remove('active');
+                        });
+                        
+                        items[index].classList.add('active');
+                        
+                        currentIndex = index;
+                    });
+                });    
+
+            });
+        });
+
+
+        /*最初の画像をクリックされている状態*/
+        items[0].classList.add('active');
+        
+        /*スライドショー*/
+        function changeImage() {
+            currentIndex++;
+
+            if(currentIndex >= thumbs.length) {
+                currentIndex = 0;
+            }
+
+            thumbs[currentIndex].click();
+        }
+
+        setInterval(changeImage , 4000);
+    </script>
+</body>
+</html>
